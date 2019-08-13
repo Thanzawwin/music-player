@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Player V0.02</title>
+</head>
+<body>
+	<header>
+		<h1>Player Version 0.02</h1>
+	</header>
+	<div class="container">
+		<div class="player">
+			<div class="current-play-name">song One</div>
+			<div class="controller-one">
+				<div class="cur-time">00:00</div>
+				<input type="range" class="slider-time" value="0" mix="0" step="0.001" max="100">
+				<div class="dur-time">00:00</div>
+			</div>
+			<div class="controller-two">
+				<div class="left">&#9194;</div>
+				<div class="play">&#9199;</div>
+				<div class="right">&#9193;</div>
+				<div class="speaker">speaker
+				<input type="range" value="0.3" step="0.01" min="0" max="1" class="speaker-slider">
+				</div>
+			</div>
+				<ul class="song-list">
+					<li>song one</li>
+					<li>song two</li>
+					<li>song three</li>
+					<li>song four</li>
+					<li>song five</li>
+					<li>song six</li>
+				</ul>
+		</div>
+	</div>
+	<script src="js/player.js"></script>
+	<script>
+		//DOM func
+		function _(data){
+			return document.querySelector(data);
+		}
+		//config
+		const config = {
+			currentPlayName:_('.current-play-name'),
+			curTime:_('.cur-time'),
+			durTime:_('.dur-time'),
+			sliderTime:_('.slider-time'),
+			left:_('.left'),
+			play:_('.play'),
+			right:_('.right'),
+			speaker:_('.speaker'),
+			songList:_('.song-list'),
+			speakerSlider:_('.speaker-slider')
+		}
+		//url
+		const url = `mp3/`;
+
+		//mp3 list
+		const lists = [];
+		for(let i=1;i <= 9;i++){
+			lists.push(`alan_walker_${i}`)
+		}
+
+	const player = new Player(config,url,lists);
+	//start work	
+	player.main();
+	</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* var */
+:root {
+	--emoji: 1.8rem;
+	--default-font: 1.4rem;
+	--controller-font: 1.5rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #ddd;
+}
+
+/* Header */
+header {
+	background-color: #333;
+	color: #fff;
+}
+
+header h1 {
+	text-align: center;
+	padding: 1rem 0;
+}
+
+.container {
+	position: absolute;
+	top: calc(50% + 2rem);
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.player {
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	display: grid;
+	grid-template-rows: 2fr 4fr 4fr 10fr;
+	width: 28rem;
+}
+
+.current-play-name,
+.controller-one,
+.controller-two {
+	border-bottom: 1px solid #333;
+}
+
+.controller-one,
+.controller-two {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 1rem;
+}
+/* song header */
+.current-play-name {
+	padding: 0.5rem 0;
+	text-align: center;
+	font-family: monospace;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+/* controller one */
+.cur-time,
+.dur-time {
+	font-size: var(--controller-font);
+}
+
+.slider-time {
+	-webkit-appearance: none;
+	width: 15rem;
+	height: 5px;
+	margin-top: 0.8rem;
+	background-color: #333;
+}
+
+.slider-time::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: red;
+}
+
+/* controller two */
+.speaker {
+	font-size: var(--controller-font);
+	position: relative;
+}
+
+.speaker .speaker-slider {
+	position: absolute;
+	transform: rotate(-90deg) translate(80px,6px);
+	-webkit-appearance: none;
+	width: 150px;
+	height: 5px;
+	background-color: #333;
+}
+
+.speaker .speaker-slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	background-color: blue;
+	border-radius: 50%;
+}
+
+.left,
+.play,
+.right
+{
+	font-size: var(--emoji);
+}
+
+.left,
+.play,
+.right,
+.speaker:hover {
+	cursor: pointer;
+}
+
+/* Song list */
+.song-list {
+	list-style: none;
+	overflow-y: auto;
+	max-height: 12rem;
+}
+
+.song-list li {
+	border-bottom: 1px solid green;
+	padding: 0.5rem 0;
+	padding-left: 1.5rem;
+	font-size: var(--default-font);
+	font-family: monospace;
+}
+
+.song-list li:hover {
+	cursor: pointer;
+	color: red;
+}
+
+.song-list::-webkit-scrollbar {
+	width: 7px;
+	background-color: #333;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+	width: 10px;
+	background-color: green;
+}
+
+.cur-song {
+	color: red;
+}
